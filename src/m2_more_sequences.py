@@ -17,9 +17,9 @@ Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
 def main():
     """ Calls the   TEST   functions in this module. """
     #run_test_shortest_string()
-    run_test_index_of_largest_number()
-    run_test_number_of_stutters()
-    #run_test_is_palindrome()
+    #run_test_index_of_largest_number()
+    #run_test_number_of_stutters()
+    run_test_is_palindrome()
     #run_test_count_same()
 
 
@@ -186,16 +186,15 @@ def index_of_largest_number(numbers, n):
 
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
 
     index_of_max = 0
-    for n in range(1, len(numbers)):
-        if numbers[n] > numbers[index_of_max]:
-            index_of_max = n
-
-    return n
+    for k in range(n):
+        if numbers[k] > numbers[index_of_max]:
+            index_of_max = k
+    return index_of_max
 
 # ----------------------------------------------------------------------
 # Some problems iterate (loop) through the sequence accessing TWO
@@ -247,14 +246,13 @@ def number_of_stutters(s):
        :type s: str
     """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
     double = 0
-    for k in range(len(s)):
-        if s[k] == 'x' + 'x':
+    for k in range(len(s)-1):
+        if s[k+1] == s[k]:
             double = double + 1
-
     return double
 
 def run_test_is_palindrome():
@@ -325,7 +323,7 @@ def is_palindrome(s):
       :type s: str
     """
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     ####################################################################
@@ -334,10 +332,9 @@ def is_palindrome(s):
     #   above are particularly good examples to work by hand.
     ####################################################################
     # ------------------------------------------------------------------
-
-    if len(s) is not len(s-1):
-        #a palindrone
-        return False
+    for k in range(1, len(s)):
+        if not s[-k] == s[k-1]:
+            return False
     return True
 
 # ----------------------------------------------------------------------
